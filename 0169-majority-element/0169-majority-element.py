@@ -1,13 +1,8 @@
 class Solution:
     def majorityElement(self, nums: list[int]) -> int:
-        counts = {}
-        majority_threshold = len(nums) // 2
+        # Sort the array in-place
+        nums.sort()
         
-        for num in nums:
-            # Increment the count for the current number
-            counts[num] = counts.get(num, 0) + 1
-            
-            # If the count exceeds n/2, we found the majority element
-            if counts[num] > majority_threshold:
-                return num
+        # The majority element will always be at the middle index
+        return nums[len(nums) // 2]
         
